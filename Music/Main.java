@@ -18,6 +18,16 @@ public class Main{
 			System.out.println("ID = " + artist.getId() + ", Name = " + artist.getName());
 		}
 
+		List<String> albums = datasource.queryAlbumsForArtist("Carole King", Datasource.ORDER_BY_NONE);
+		if(albums == null){
+			System.out.println("No albums by " + "Carole King");
+			return;
+		}
+
+		for(String album : albums){
+			System.out.println(album);
+		}
+
 		datasource.close();
 	}
 }
